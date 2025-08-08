@@ -10,3 +10,6 @@ pypdf
 python-docx
 beautifulsoup4
 httpx
+speechrecognition
+pyannote.audio
+google-cloud-vision
