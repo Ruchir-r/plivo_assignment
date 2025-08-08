@@ -10,7 +10,7 @@ export default function LoginPage({ onLogin }) {
     formData.append("username", email);
     formData.append("password", password);
 
-    const res = await fetch("/api/token", {
+    const res = await fetch("https://plivo-assignment-okge.onrender.com/api/token", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: formData.toString(),
@@ -21,7 +21,9 @@ export default function LoginPage({ onLogin }) {
       localStorage.setItem("token", data.access_token);
       onLogin(data.access_token);
     } else {
-      alert("Invalid credentials");
+      const text = await res.text();
+    console.error("Fetch error status:", res.status, text);
+    alert(`Invalid credentials or error. Status: ${res.status}`);
     }
   };
 

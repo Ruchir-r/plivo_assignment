@@ -6,7 +6,7 @@ function App() {
   const [profile, setProfile] = useState(null);
 
   const checkProfile = async () => {
-    const res = await fetch("/api/users/me", {
+    const res = await fetch("https://plivo-assignment-okge.onrender.com/api/users/me", {
       headers: { Authorization: "Bearer " + token },
     });
     const data = await res.json();
